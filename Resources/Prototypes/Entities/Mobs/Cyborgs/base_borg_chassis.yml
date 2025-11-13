@@ -581,7 +581,7 @@
 # Centcomm Cyborgs
 - type: entity
   id: BaseCentcommChassis
-  parent: BaseBorgChassisNotIonStormable
+  parent: [ BaseBorgChassisNotIonStormable, ShowSecurityIcons, ShowMedicalIcons ]
   abstract: true
   components:
   - type: FlashImmunity
