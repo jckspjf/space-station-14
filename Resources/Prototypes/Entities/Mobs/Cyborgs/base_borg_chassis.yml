@@ -55,11 +55,11 @@
     allowRevives: true
   - type: HealthExaminable
     examinableTypes:
-      - Blunt
-      - Slash
-      - Piercing
-      - Heat
-      - Shock
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
     locPrefix: silicon
   - type: UserInterface
     interfaces:
@@ -566,7 +566,7 @@
     guides:
     - Cyborgs
     - Robotics
-    # TODO: add Xenoborg guide (part 7 spoilers)
+    - Xenoborgs
   - type: Access
     enabled: false
     tags:
@@ -577,11 +577,12 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Xenoborg
 
 # Centcomm Cyborgs
 - type: entity
-  id: BaseCentcommChassis
   parent: [ BaseBorgChassisNotIonStormable, ShowSecurityIcons, ShowMedicalIcons ]
+  id: BaseCentcommChassis
   abstract: true
   components:
   - type: FlashImmunity
@@ -660,13 +661,19 @@
       visible: false
       sprite: Mobs/Silicon/chassis.rsi
   - type: BorgChassis
-    maxModules: 3
+    maxModules: 6
     hasMindState: combat_e
     noMindState: combat_e_r
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
       - BorgModuleEngineering
+      - BorgModuleMedical
+      - BorgModuleCargo
+      - BorgModuleMining
+      - BorgModuleScience
+      - BorgModuleService
+      - BorgModuleJanitor
       - BorgModuleCentComm
   - type: MobThresholds # 2x more HP than a regular cyborg
     thresholds:
@@ -712,8 +719,8 @@
       - BorgModuleAdvancedTool
 
 - type: entity
-  id: BorgChassisCommando
   parent: BaseCentcommChassis
+  id: BorgChassisCommando
   name: commando cyborg
   description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen. Fitted with the finest technology Nanotrasen could offer, nothing will stand in its way for long. Its shell is reinforced with plastitanium.
   components:
@@ -737,13 +744,19 @@
       visible: false
       sprite: Mobs/Silicon/chassis.rsi
   - type: BorgChassis
-    maxModules: 3
+    maxModules: 6
     hasMindState: commando_e
     noMindState: commando_e_r
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
       - BorgModuleEngineering
+      - BorgModuleMedical
+      - BorgModuleCargo
+      - BorgModuleMining
+      - BorgModuleScience
+      - BorgModuleService
+      - BorgModuleJanitor
       - BorgModuleCentComm
   - type: MobThresholds # 4x more HP than a regular cyborg. Mostly just to match how TANKY Deathsquads are. You're not meant to win against a DS, after all.
     thresholds:
