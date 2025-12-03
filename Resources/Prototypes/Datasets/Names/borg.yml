@@ -4,3 +4,10 @@
   values:
     prefix: names-borg-dataset-
     count: 51
+
+# used for Central Command cyborgs.
+- type: localizedDataset
+  id: NamesCentCommBorg
+  values:
+    prefix: names-cc-borg-dataset-
+    count: 20

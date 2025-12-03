@@ -634,12 +634,16 @@
     access: [["CentralCommand"]]
   - type: ShowJobIcons
   - type: Stripping
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
 
 - type: entity
   id: BorgChassisCombat
   parent: BaseCentcommChassis
   name: combat cyborg
-  description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, specialized for the extermination of powerful threats alongside their ERT compatriots. Its shell is reinforced with plasteel.
+  description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, specialized for the extermination of powerful threats alongside their ERT compatriots.
   components:
   - type: BorgTransponder
     name: combat cyborg
@@ -660,8 +664,9 @@
       map: [ "light" ]
       visible: false
       sprite: Mobs/Silicon/chassis.rsi
+  - type: MovementAlwaysTouching
   - type: BorgChassis
-    maxModules: 6
+    maxModules: 4
     hasMindState: combat_e
     noMindState: combat_e_r
     moduleWhitelist:
@@ -716,12 +721,17 @@
       borg_module:
       - BorgModuleERT
       - BorgModuleAdvancedTool
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
 
 - type: entity
   parent: BaseCentcommChassis
   id: BorgChassisCommando
   name: commando cyborg
-  description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen. Fitted with the finest technology Nanotrasen could offer, nothing will stand in its way for long. Its shell is reinforced with plastitanium.
+  description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, fitted with the finest technology Nanotrasen could offer, its chassis is built for extermination of powerful threats.
   components:
   - type: BorgTransponder
     name: commando cyborg
@@ -742,8 +752,9 @@
       map: [ "light" ]
       visible: false
       sprite: Mobs/Silicon/chassis.rsi
+  - type: MovementAlwaysTouching
   - type: BorgChassis
-    maxModules: 6
+    maxModules: 3
     hasMindState: commando_e
     noMindState: commando_e_r
     moduleWhitelist:
@@ -780,7 +791,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 450
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -798,6 +809,11 @@
       borg_module:
       - BorgModuleCommando
       - BorgModuleAdvancedTool
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellAntiqueProto
 
 - type: entity
   id: PlayerBorgCombatGhostRole

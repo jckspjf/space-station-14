@@ -2267,7 +2267,6 @@
     - item: WeaponCyborgImmolatorCannon
     - item: StunBatonCyborg
     - item: SonicJackhammer
-    - item: JetpackInfinite
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: ert-module }
 
@@ -2286,6 +2285,5 @@
     - item: WeaponPulseRifleCyborg
     - item: EnergySword
     - item: SonicJackhammer
-    - item: JetpackInfinite
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: ds-module }
