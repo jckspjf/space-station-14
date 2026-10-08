@@ -22,3 +22,15 @@
     sprite: Clothing/Under/Socks/coder.rsi
   - type: Clothing
     sprite: Clothing/Under/Socks/coder.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingUnderSocksPaws
+  name: paw socks
+  description: "[italic]Paws at you![/italic]"
+  components:
+  - type: Sprite
+    sprite: Clothing/Under/Socks/paw.rsi
+  - type: Clothing
+    sprite: Clothing/Under/Socks/paw.rsi
+  - type: NoSlip
