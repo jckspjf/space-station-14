@@ -387,3 +387,147 @@
     noMindState: synd_sec_derelict
   - type: Construction
     node: derelictcyborg
+
+- type: entity
+  parent: BaseCentcommChassis
+  id: BorgChassisCombat
+  name: combat cyborg
+  description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, specialized for the extermination of powerful threats alongside their ERT compatriots.
+  components:
+  - type: BorgTransponder
+    name: combat cyborg
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: combat
+  - type: Sprite
+    layers:
+    - state: combat
+      sprite: Mobs/Silicon/chassis.rsi
+    - state: combat_e
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+      sprite: Mobs/Silicon/chassis.rsi
+    - state: combat_l
+      shader: unshaded
+      map: [ "light" ]
+      visible: false
+      sprite: Mobs/Silicon/chassis.rsi
+  - type: MovementAlwaysTouching
+  - type: BorgChassis
+    maxModules: 6
+    hasMindState: combat_e
+    noMindState: combat_e_r
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleEngineering
+      - BorgModuleMedical
+      - BorgModuleCargo
+      - BorgModuleScience
+      - BorgModuleService
+      - BorgModuleJanitor
+      - BorgModuleCentComm
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - MMIFilled
+      borg_module:
+      - BorgModuleERT
+      - BorgModuleAdvancedTool
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+
+- type: entity
+  parent: BaseCentcommChassis
+  id: BorgChassisCommando
+  name: commando cyborg
+  description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, fitted with the finest technology Nanotrasen could offer, its chassis is built for extermination of powerful threats.
+  components:
+  - type: BorgTransponder
+    name: commando cyborg
+    sprite:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: commando
+  - type: Sprite
+    layers:
+    - state: commando
+      sprite: Mobs/Silicon/chassis.rsi
+    - state: commando_e
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+      sprite: Mobs/Silicon/chassis.rsi
+    - state: commando_l
+      shader: unshaded
+      map: [ "light" ]
+      visible: false
+      sprite: Mobs/Silicon/chassis.rsi
+  - type: MovementAlwaysTouching
+  - type: BorgChassis
+    maxModules: 6
+    hasMindState: commando_e
+    noMindState: commando_e_r
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleEngineering
+      - BorgModuleMedical
+      - BorgModuleCargo
+      - BorgModuleScience
+      - BorgModuleService
+      - BorgModuleJanitor
+      - BorgModuleCentComm
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      600: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SiliconLawProvider
+    laws: AntimovLawset # DeathSquad aren't crew, doesn't conflict with other DS members
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - MMIFilled
+      borg_module:
+      - BorgModuleCommando
+      - BorgModuleAdvancedTool
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellAntiqueProto
+
