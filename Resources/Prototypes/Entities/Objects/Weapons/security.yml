@@ -255,11 +255,11 @@
             collection: MetalGlassBreak
 
 - type: entity
-  id: StunBatonCyborg
   parent: Stunbaton
+  id: StunBatonCyborg
   name: recharging cyborg baton
-  description: A version of the Stun Baton that draws power from the cyborg's internal cell.
   suffix: Cyborg
+  description: A version of the Stun Baton that draws power from the cyborg's internal cell.
   components:
   - type: PredictedBatterySelfRecharger
     autoRechargeRate: 20

@@ -453,9 +453,9 @@
         color: "#FF00CC"
 
 - type: entity
-  abstract: true
   parent: BaseBorgModule
   id: BaseBorgModuleCentComm
+  abstract: true
   components:
   - type: Tag
     tags:

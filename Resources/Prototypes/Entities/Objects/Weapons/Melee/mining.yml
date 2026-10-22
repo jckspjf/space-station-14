@@ -269,11 +269,6 @@
     sprite: Objects/Tools/sonicjackhammer.rsi
     state: icon
   - type: MeleeWeapon
-    autoAttack: true
-    angle: 0
-    wideAnimationRotation: -90
-    soundHit:
-      path: "/Audio/Items/drill_hit.ogg"
     attackRate: 7
     damage:
       groups:

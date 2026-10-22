@@ -1141,7 +1141,6 @@
     channel: XenoborgGuidedMissileLauncher
 
 - type: entity
-  name: cyborg pulse rifle
   parent: WeaponPulseRifle
   id: WeaponPulseRifleCyborg
   name: cyborg pulse rifle
