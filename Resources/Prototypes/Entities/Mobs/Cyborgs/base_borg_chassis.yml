@@ -616,10 +616,10 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMicroreactor
   - type: SiliconLawProvider
-    laws: CentCommLawset
+    laws: RobocopLawset
   - type: RandomMetadata
     nameSegments:
-    - NamesBorg
+    - NamesCentCommBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -640,8 +640,8 @@
     - Inorganic
 
 - type: entity
-  id: BorgChassisCombat
   parent: BaseCentcommChassis
+  id: BorgChassisCombat
   name: combat cyborg
   description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, specialized for the extermination of powerful threats alongside their ERT compatriots.
   components:
@@ -679,41 +679,6 @@
       - BorgModuleService
       - BorgModuleJanitor
       - BorgModuleCentComm
-  - type: MobThresholds # 2x more HP than a regular cyborg
-    thresholds:
-      0: Alive
-      200: Critical
-      400: Dead
-    stateAlertDict:
-      Alive: BorgHealth
-      Critical: BorgCrit
-      Dead: BorgDead
-    showOverlays: false
-    allowRevives: true
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Machines/warning_buzzer.ogg
-          params:
-            volume: 5
-    - trigger:
-        !type:DamageTrigger
-        damage: 250
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:EmptyContainersBehaviour
-        containers:
-        - borg_brain
-        - cell_slot
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: ContainerFill
     containers:
       borg_brain:
@@ -754,7 +719,7 @@
       sprite: Mobs/Silicon/chassis.rsi
   - type: MovementAlwaysTouching
   - type: BorgChassis
-    maxModules: 3
+    maxModules: 5
     hasMindState: commando_e
     noMindState: commando_e_r
     moduleWhitelist:
@@ -767,11 +732,11 @@
       - BorgModuleService
       - BorgModuleJanitor
       - BorgModuleCentComm
-  - type: MobThresholds # 4x more HP than a regular cyborg. Mostly just to match how TANKY Deathsquads are. You're not meant to win against a DS, after all.
+  - type: MobThresholds
     thresholds:
       0: Alive
-      400: Critical
-      800: Dead
+      200: Critical
+      600: Dead
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -782,7 +747,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 350
+        damage: 175
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -791,7 +756,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 450
+        damage: 600
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -802,6 +767,8 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: SiliconLawProvider
+    laws: AntimovLawset # DeathSquad aren't crew, doesn't conflict with other DS members
   - type: ContainerFill
     containers:
       borg_brain:
