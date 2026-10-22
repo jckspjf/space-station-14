@@ -256,7 +256,7 @@
 
 - type: entity
   parent: Stunbaton
-  id: StunBatonCyborg
+  id: StunBatonCyborg # Used for ERT cyborgs, shouldn't be given to other borg chassis types in the future.
   name: recharging cyborg baton
   suffix: Cyborg
   description: A version of the Stun Baton that draws power from the cyborg's internal cell.

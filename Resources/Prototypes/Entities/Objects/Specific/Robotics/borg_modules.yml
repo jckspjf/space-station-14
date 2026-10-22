@@ -453,7 +453,7 @@
         color: "#FF00CC"
 
 - type: entity
-  parent: BaseBorgModule
+  parent: [ BaseBorgModule, BaseCentcommContraband ]
   id: BaseBorgModuleCentComm
   abstract: true
   components:
@@ -2253,7 +2253,7 @@
 
 # centcomm modules
 - type: entity
-  parent: [ BaseBorgModuleCentComm, BaseProviderBorgModule, BaseCentcommContraband ]
+  parent: [ BaseBorgModuleCentComm, BaseProviderBorgModule ]
   id: BorgModuleERT
   name: emergency response team cyborg module
   description: A module that comes with several tools for a Combat Cyborg.
@@ -2271,7 +2271,7 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: ert-module }
 
 - type: entity
-  parent: [ BaseBorgModuleCentComm, BaseProviderBorgModule, BaseCentcommContraband ]
+  parent: [ BaseBorgModuleCentComm, BaseProviderBorgModule ]
   id: BorgModuleCommando
   name: commando cyborg module
   description: A module just as infamous as its chassis.
