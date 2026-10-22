@@ -560,24 +560,6 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: PointLight
-    color: "#0033ff"
-  - type: GuideHelp
-    guides:
-    - Cyborgs
-    - Robotics
-    - Xenoborgs
-  - type: Access
-    enabled: false
-    tags:
-    - Xenoborg
-  - type: AccessReader
-    access: [["Xenoborg"]]
-  - type: ShowJobIcons # not sure if it is needed
-  - type: InteractionPopup
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Xenoborg
 
 # Centcomm Cyborgs
 - type: entity
