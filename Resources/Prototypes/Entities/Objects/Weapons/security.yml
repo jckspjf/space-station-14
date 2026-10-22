@@ -261,8 +261,8 @@
   suffix: Cyborg
   description: A version of the Stun Baton that draws power from the cyborg's internal cell.
   components:
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 20
-  - type: PredictedBattery # 3/4 the charge capacity but slowly recharges
+  - type: Battery # 3/4 the charge capacity but slowly recharges
     maxCharge: 750
     startingCharge: 750
