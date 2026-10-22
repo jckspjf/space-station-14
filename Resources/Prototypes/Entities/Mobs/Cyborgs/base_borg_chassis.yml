@@ -567,7 +567,6 @@
   id: BaseCentcommChassis
   abstract: true
   components:
-  - type: FlashImmunity
   - type: IntrinsicRadioTransmitter
     channels:
     - Common

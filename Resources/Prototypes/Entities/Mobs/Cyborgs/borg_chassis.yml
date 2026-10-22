@@ -447,6 +447,7 @@
   name: commando cyborg
   description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, fitted with the finest technology Nanotrasen could offer, its chassis is built for extermination of powerful threats.
   components:
+  - type: FlashImmunity
   - type: BorgTransponder
     name: commando cyborg
     sprite:
